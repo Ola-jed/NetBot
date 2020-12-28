@@ -14,7 +14,8 @@ namespace NetBot
         {
             const string info =
             @"
--- $help : Obtenir l'aide
+--  $help : Obtenir l'aide
+--  $cpp : C'est quoi cpp ?
 --  $ping : Pour tester le bot
 --  $avatar : Obtenir votre photo de profil
 --  $react : Réagir à un message avec un emoji";
@@ -34,7 +35,7 @@ namespace NetBot
         }
 
         [Command("react")]
-        public async Task ReactTask(string arg, string pEmoji)
+        public async Task ReactTask(string arg, string pEmoji = "🙂")
         {
             var message = await Context.Channel.SendMessageAsync(arg);
             var emoji   = new Emoji(pEmoji);
@@ -46,6 +47,12 @@ namespace NetBot
         public async Task GetthisTask()
         {
             await ReplyAsync("Viens sur mon site : https://gettthiss.000webhostapp.com");
+        }
+
+        [Command("cpp")]
+        public async Task CppTask()
+        {
+            await ReplyAsync("CPP is the best language");
         }
     }
 }
