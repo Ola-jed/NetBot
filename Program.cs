@@ -27,6 +27,7 @@ namespace NetBot
                 Console.WriteLine("Je suis prêt");
                 return Task.CompletedTask;
             };
+
             client.Log += Log;
             await InstallCommandsAsync();
             await client.LoginAsync(TokenType.Bot,Environment.GetEnvironmentVariable("DISCORD_TOKEN"));
