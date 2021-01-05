@@ -10,5 +10,6 @@ Pour lancer :
 ```bash
 dotnet run
 ```
+Aller à l'adresse suivante pour  l'ajouter à un de vo serveurs : https://discord.com/oauth2/authorize?client_id=792362557771087913&scope=bot
 
 Vous pouvez me contacter à l'adresse olabijed@gmail.com
