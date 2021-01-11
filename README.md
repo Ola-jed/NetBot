@@ -5,10 +5,7 @@ If you want to reuse the commans with your own bot, you have to add your token t
 
 To run, you must have .Net or .Net core
 ```bash
-git clone https://github.com/Ola-jed/.NetDiscordBot
-# Note : The name starts with "." so, the folder will be hidden.
-# We will rename the folder.
-mv .NetDiscordBot/ NetDiscordBot
+git clone https://github.com/Ola-jed/NetDiscordBot
 cd NetDiscordBot
 dotnet run
 ```
