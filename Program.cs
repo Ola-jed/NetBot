@@ -47,11 +47,15 @@ namespace NetBot
             var message = arg as SocketUserMessage;
             int argPos = 0;
             if ((message == null) || (!message.HasCharPrefix('$',ref argPos)))
+            {
                 return;
+            }
             var context = new SocketCommandContext(client,message);
             var result = await commands.ExecuteAsync(context,argPos,null);
             if (!result.IsSuccess)
-                await context.Channel.SendMessageAsync(result.ErrorReason);
+            {
+                await context.Channel.SendMessageAsync(result.ErrorReason);   
+            }
         }
 
         private Task Log(LogMessage args)
