@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Tx5mh5t6f48GYVKhlfuiguU2CxhmY7EtOp+bCVpUjkGYzRI7SR71kG2pJ7U6pJpP4V0X130X0mC+o9pPKxrGtg==",
+  "dgSpecHash": "mt6S8SQkCdoXGQaLXCegtBks1i09nwpe9BB+j6EnnspWVo/ZMI4PWb4pvLQBR5XpZfp1FGuyWtRceOEg8r+Pig==",
   "success": true,
-  "projectFilePath": "/home/ola/Bureau/C#/NetBot/NetBot.csproj",
+  "projectFilePath": "/home/ola/NetDiscordBot/NetBot.csproj",
   "expectedPackageFiles": [
     "/home/ola/.nuget/packages/discord.net/2.2.0/discord.net.2.2.0.nupkg.sha512",
     "/home/ola/.nuget/packages/discord.net.commands/2.2.0/discord.net.commands.2.2.0.nupkg.sha512",
@@ -12,7 +12,7 @@
     "/home/ola/.nuget/packages/discord.net.websocket/2.2.0/discord.net.websocket.2.2.0.nupkg.sha512",
     "/home/ola/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/home/ola/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
-    "/home/ola/.nuget/packages/newtonsoft.json/12.0.2/newtonsoft.json.12.0.2.nupkg.sha512",
+    "/home/ola/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
     "/home/ola/.nuget/packages/system.collections/4.3.0/system.collections.4.3.0.nupkg.sha512",
     "/home/ola/.nuget/packages/system.collections.immutable/1.3.1/system.collections.immutable.1.3.1.nupkg.sha512",
     "/home/ola/.nuget/packages/system.diagnostics.debug/4.3.0/system.diagnostics.debug.4.3.0.nupkg.sha512",
