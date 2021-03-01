@@ -24,7 +24,7 @@ namespace NetBot
 
             client.Ready += () =>
             {
-                Console.WriteLine("Je suis prêt");
+                Console.WriteLine("Ready");
                 return Task.CompletedTask;
             };
 
@@ -54,7 +54,7 @@ namespace NetBot
             var result = await commands.ExecuteAsync(context,argPos,null);
             if (!result.IsSuccess)
             {
-                await context.Channel.SendMessageAsync(result.ErrorReason);   
+                await context.Channel.SendMessageAsync(result.ErrorReason);
             }
         }
 

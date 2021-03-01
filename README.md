@@ -1,4 +1,4 @@
-# .NetDiscordBot
+# NetDiscordBot
 A simple discord bot bot written in c# with the discord.net library
 
 If you want to reuse the commans with your own bot, you have to add your token to $PATH with the name  : DISCORD_TOKEN.

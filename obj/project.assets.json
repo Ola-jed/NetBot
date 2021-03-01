@@ -1459,24 +1459,31 @@
     ]
   },
   "packageFolders": {
-    "/home/ola/.nuget/packages/": {}
+    "C:\\Users\\SEA\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/ola/NetDiscordBot/NetBot.csproj",
+      "projectUniqueName": "C:\\Users\\SEA\\Desktop\\C#\\NetDiscordBot\\NetBot.csproj",
       "projectName": "NetBot",
-      "projectPath": "/home/ola/NetDiscordBot/NetBot.csproj",
-      "packagesPath": "/home/ola/.nuget/packages/",
-      "outputPath": "/home/ola/NetDiscordBot/obj/",
+      "projectPath": "C:\\Users\\SEA\\Desktop\\C#\\NetDiscordBot\\NetBot.csproj",
+      "packagesPath": "C:\\Users\\SEA\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\SEA\\Desktop\\C#\\NetDiscordBot\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "/home/ola/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\SEA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1519,7 +1526,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

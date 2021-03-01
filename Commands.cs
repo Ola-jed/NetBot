@@ -1,10 +1,8 @@
 using System;
-using System.Reflection;
 using System.Threading.Tasks;
 using System.Net.Http;
 using Discord;
 using Discord.Commands;
-using Discord.WebSocket;
 using Newtonsoft.Json.Linq;
 
 namespace NetBot
@@ -12,35 +10,40 @@ namespace NetBot
     public class Commands : ModuleBase<SocketCommandContext>
     {
         [Command("help")]
+        [Summary("Help for the commands")]
+        [Alias("Help", "man")]
         public async Task HelpAsync()
         {
             const string info =
             @"
---  $help : Get the help
---  $ping : Test the bot
---  $joke : Read a joke
---  $avatar : Obtain your profile picture
---  $ip : Get the ip where is the ip from <$ip 0.0.0.0>
---  $convert : Convert a number from a base to an other one <$convert 'num' from 'base' to 'destination'>
---  $react : Réagir à un message avec un emoji <$react 'message' 'emoji'>
-Note : There are some hidden commands";
+            --  $help : Get the help <$help>
+            --  $ping : Test the bot <$ping>
+            --  $joke : Read a joke <$joke>
+            --  $avatar : Obtain your profile picture <$avatar>
+            --  $ip : Get the ip where is the ip from <$ip 0.0.0.0>
+            --  $convert : Convert a number from a base to an other one <$convert 'num' from 'base' to 'destination'>
+            --  $react : React to a message with an emoji <$react 'message' 'emoji'>
+            Note : There are some hidden commands";
             await ReplyAsync(info);
         }
 
         [Command("ping")]
+        [Summary("Ping the bot")]
         public async Task PingAsync()
         {
-            await ReplyAsync("Hello World ");
+            var msg = await ReplyAsync("Hello World ");
+            await msg.AddReactionAsync(new Emoji("\uD83D\uDEB6"));
         }
 
         [Command("Avatar")]
+        [Summary("Get the user's profile picture")]
         public async Task AvatarAsync(ushort size = 512)
         {
             await ReplyAsync(CDN.GetUserAvatarUrl(Context.User.Id,Context.User.AvatarId,size,ImageFormat.Auto));
         }
 
         [Command("react")]
-        public async Task ReactTask(string arg, string pEmoji = "🙂")
+        public async Task ReactTask(string arg, string pEmoji = "\uD83D\uDE06")
         {
             var message = await Context.Channel.SendMessageAsync(arg);
             var emoji   = new Emoji(pEmoji);
@@ -49,12 +52,11 @@ Note : There are some hidden commands";
         }
 
         [Command("convert")]
-        public async Task ConvertTask(string num1,string from,string baseNum,string to,string destination)
+        [Summary("Convert a number from a base to another")]
+        public async Task ConvertTask(params String[] arg)
         {
-            var number   = num1;
-            var fromBase = Convert.ToInt32(baseNum);
-            int toBase   = Convert.ToInt32(destination);
-            await ReplyAsync(Convert.ToString(Convert.ToInt32(number, fromBase), toBase));
+            var result  = await ReplyAsync(Convert.ToString(Convert.ToInt32(arg[0],Convert.ToInt32(arg[2])),Convert.ToInt32(arg[4])));
+            await result.AddReactionAsync(new Emoji("\uD83D\uDD22"));
         }
 
         [Command("joke")]
@@ -74,10 +76,12 @@ Note : There are some hidden commands";
             {
                 toReturn = $"Message :{e.Message}";
             }
-            await ReplyAsync(toReturn);
+            var joke = await ReplyAsync(toReturn);
+            await joke.AddReactionAsync(new Emoji("\uD83D\uDE06"));
         }
 
         [Command("ip")]
+        [Summary("Get the country with an ip")]
         public async Task IpTask(string ip)
         {
             HttpClient client = new HttpClient();
@@ -96,12 +100,6 @@ Note : There are some hidden commands";
                 toReturn = $"Message :{e.Message}";
             }
             await ReplyAsync(toReturn);
-        }
-
-        [Command("getthis")]
-        public async Task GetthisTask()
-        {
-            await ReplyAsync("Come on my website : https://gettthiss.000webhostapp.com");
         }
     }
 }
