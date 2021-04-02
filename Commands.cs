@@ -47,30 +47,41 @@ namespace NetBot
         {
             var message = await Context.Channel.SendMessageAsync(arg);
             var emoji   = new Emoji(pEmoji);
-
             await message.AddReactionAsync(emoji);
         }
 
         [Command("convert")]
         [Summary("Convert a number from a base to another")]
-        public async Task ConvertTask(params String[] arg)
+        public async Task ConvertTask(params string[] arg)
         {
-            var result  = await ReplyAsync(Convert.ToString(Convert.ToInt32(arg[0],Convert.ToInt32(arg[2])),Convert.ToInt32(arg[4])));
-            await result.AddReactionAsync(new Emoji("\uD83D\uDD22"));
+            var numberParam = arg[0];
+            var initialBase = Convert.ToInt32(arg[2]);
+            var destinationBase = Convert.ToInt32(arg[4]);
+            try
+            {
+                var result = await ReplyAsync(Convert.ToString(Convert.ToInt32(numberParam,initialBase),destinationBase));
+                await result.AddReactionAsync(new Emoji("\uD83D\uDD22"));
+            }
+            catch (Exception e)
+            {
+                var errorToPrint = e.ToString().Split("\n")[0].Split(":")[1];
+                var result = await ReplyAsync($"> {errorToPrint}");
+                await result.AddReactionAsync(new Emoji("🤕"));
+            }
         }
 
         [Command("joke")]
         public async Task JokeTask()
         {
-            HttpClient client = new HttpClient();
+            var client = new HttpClient();
             string toReturn;
             try
             {
-                HttpResponseMessage response = await client.GetAsync("https://v2.jokeapi.dev/joke/programming");
+                var response = await client.GetAsync("https://v2.jokeapi.dev/joke/programming");
                 response.EnsureSuccessStatusCode();
-                string responseBody = await response.Content.ReadAsStringAsync();
+                var responseBody = await response.Content.ReadAsStringAsync();
                 var res = JObject.Parse(responseBody);
-                toReturn = (res["type"].ToString() == "single") ? $"{res["joke"]}" : $" {res["setup"]} :  {res["delivery"]}";
+                toReturn = (res["type"]?.ToString() == "single") ? $"{res["joke"]}" : $" {res["setup"]} :  {res["delivery"]}";
             }
             catch(HttpRequestException e)
             {
@@ -84,13 +95,13 @@ namespace NetBot
         [Summary("Get the country with an ip")]
         public async Task IpTask(string ip)
         {
-            HttpClient client = new HttpClient();
+            var client = new HttpClient();
             string toReturn;
             try
             {
-                HttpResponseMessage response = await client.GetAsync("https://api.ip2country.info/ip?"+ip);
+                var response = await client.GetAsync("https://api.ip2country.info/ip?"+ip);
                 response.EnsureSuccessStatusCode();
-                string responseBody = await response.Content.ReadAsStringAsync();
+                var responseBody = await response.Content.ReadAsStringAsync();
                 var res  = JObject.Parse(responseBody);
                 toReturn = (res["countryName"].ToString() == "") ? "From no Country" :
                         "The ip " + ip + " is from " + res["countryName"].ToString();

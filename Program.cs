@@ -36,7 +36,7 @@ namespace NetBot
             await Task.Delay(-1);
         }
 
-        public async Task InstallCommandsAsync()
+        private async Task InstallCommandsAsync()
         {
             client.MessageReceived += HandleCommandAsync;
             await commands.AddModulesAsync(Assembly.GetEntryAssembly(),null);
@@ -45,7 +45,7 @@ namespace NetBot
         private async Task HandleCommandAsync(SocketMessage arg)
         {
             var message = arg as SocketUserMessage;
-            int argPos = 0;
+            var argPos = 0;
             if ((message == null) || (!message.HasCharPrefix('$',ref argPos)))
             {
                 return;
