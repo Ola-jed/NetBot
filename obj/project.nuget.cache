@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9WGmx/2NTlV8bampKzDCxOU9swViVMzrv3Z5pfbyASLoM7/YWenWTxVFKy8GjJR0wcDYFEXDNxH5Bb3H9OfD1Q==",
+  "dgSpecHash": "N8RPMN94uxXTBr/tIAPgDuE2iI6U4smqq0BNQQU98in9ScwKmCzItsxBuiRUzmhm7qmAuHupq1+Z91R2RbirNg==",
   "success": true,
-  "projectFilePath": "/home/ola/JetBrains IDE Projects/RiderProjects/NetDiscordBot/NetBot.csproj",
+  "projectFilePath": "/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/NetBot.csproj",
   "expectedPackageFiles": [
     "/home/ola/.nuget/packages/discord.net/2.2.0/discord.net.2.2.0.nupkg.sha512",
     "/home/ola/.nuget/packages/discord.net.commands/2.2.0/discord.net.commands.2.2.0.nupkg.sha512",

@@ -123,3 +123,28 @@ C:/Users/SEA/Desktop/C#/NetDiscordBot/obj/Debug/net5.0/NetBot.genruntimeconfig.c
 /home/ola/JetBrains IDE Projects/RiderProjects/NetDiscordBot/obj/Debug/net5.0/ref/NetBot.dll
 /home/ola/JetBrains IDE Projects/RiderProjects/NetDiscordBot/obj/Debug/net5.0/NetBot.pdb
 /home/ola/JetBrains IDE Projects/RiderProjects/NetDiscordBot/obj/Debug/net5.0/NetBot.genruntimeconfig.cache
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/bin/Debug/net5.0/NetBot
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/bin/Debug/net5.0/NetBot.deps.json
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/bin/Debug/net5.0/NetBot.runtimeconfig.json
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/bin/Debug/net5.0/NetBot.runtimeconfig.dev.json
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/bin/Debug/net5.0/NetBot.dll
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/bin/Debug/net5.0/ref/NetBot.dll
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/bin/Debug/net5.0/NetBot.pdb
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/bin/Debug/net5.0/Discord.Net.Commands.dll
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/bin/Debug/net5.0/Discord.Net.Core.dll
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/bin/Debug/net5.0/Discord.Net.Rest.dll
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/bin/Debug/net5.0/Discord.Net.Webhook.dll
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/bin/Debug/net5.0/Discord.Net.WebSocket.dll
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/bin/Debug/net5.0/Newtonsoft.Json.dll
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/bin/Debug/net5.0/System.Interactive.Async.dll
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/bin/Debug/net5.0/System.Linq.Async.dll
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/obj/Debug/net5.0/NetBot.csprojAssemblyReference.cache
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/obj/Debug/net5.0/NetBot.GeneratedMSBuildEditorConfig.editorconfig
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/obj/Debug/net5.0/NetBot.AssemblyInfoInputs.cache
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/obj/Debug/net5.0/NetBot.AssemblyInfo.cs
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/obj/Debug/net5.0/NetBot.csproj.CoreCompileInputs.cache
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/obj/Debug/net5.0/NetBot.csproj.CopyComplete
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/obj/Debug/net5.0/NetBot.dll
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/obj/Debug/net5.0/ref/NetBot.dll
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/obj/Debug/net5.0/NetBot.pdb
+/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/obj/Debug/net5.0/NetBot.genruntimeconfig.cache

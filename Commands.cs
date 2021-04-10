@@ -16,14 +16,14 @@ namespace NetBot
         {
             const string info =
             @"
-            --  $help : Get the help <$help>
-            --  $ping : Test the bot <$ping>
-            --  $joke : Read a joke <$joke>
-            --  $avatar : Obtain your profile picture <$avatar>
-            --  $ip : Get the ip where is the ip from <$ip 0.0.0.0>
-            --  $convert : Convert a number from a base to an other one <$convert 'num' from 'base' to 'destination'>
-            --  $react : React to a message with an emoji <$react 'message' 'emoji'>
-            Note : There are some hidden commands";
+            > --  $help : Get the help <$help>
+            > --  $ping : Test the bot <$ping>
+            > --  $joke : Read a joke <$joke>
+            > --  $avatar : Obtain your profile picture <$avatar>
+            > --  $ip : Get the ip where is the ip from <$ip 0.0.0.0>
+            > --  $convert : Convert a number from a base to an other one <$convert 'num' from 'base' to 'destination'>
+            > --  $react : React to a message with an emoji <$react 'message' 'emoji'>
+            > Note : There are some hidden commands";
             await ReplyAsync(info);
         }
 
@@ -31,7 +31,7 @@ namespace NetBot
         [Summary("Ping the bot")]
         public async Task PingAsync()
         {
-            var msg = await ReplyAsync("Hello World ");
+            var msg = await ReplyAsync("> Hello World ");
             await msg.AddReactionAsync(new Emoji("\uD83D\uDEB6"));
         }
 
@@ -45,7 +45,7 @@ namespace NetBot
         [Command("react")]
         public async Task ReactTask(string arg, string pEmoji = "\uD83D\uDE06")
         {
-            var message = await Context.Channel.SendMessageAsync(arg);
+            var message = await Context.Channel.SendMessageAsync("> " + arg);
             var emoji   = new Emoji(pEmoji);
             await message.AddReactionAsync(emoji);
         }
@@ -87,7 +87,7 @@ namespace NetBot
             {
                 toReturn = $"Message :{e.Message}";
             }
-            var joke = await ReplyAsync(toReturn);
+            var joke = await ReplyAsync("> "+toReturn);
             await joke.AddReactionAsync(new Emoji("\uD83D\uDE06"));
         }
 
@@ -106,11 +106,11 @@ namespace NetBot
                 toReturn = (res["countryName"].ToString() == "") ? "From no Country" :
                         "The ip " + ip + " is from " + res["countryName"].ToString();
             }
-            catch(HttpRequestException e)
+            catch(Exception e)
             {
                 toReturn = $"Message :{e.Message}";
             }
-            await ReplyAsync(toReturn);
+            await ReplyAsync("> " + toReturn);
         }
     }
 }

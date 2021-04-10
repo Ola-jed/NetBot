@@ -1464,11 +1464,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/ola/JetBrains IDE Projects/RiderProjects/NetDiscordBot/NetBot.csproj",
+      "projectUniqueName": "/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/NetBot.csproj",
       "projectName": "NetBot",
-      "projectPath": "/home/ola/JetBrains IDE Projects/RiderProjects/NetDiscordBot/NetBot.csproj",
+      "projectPath": "/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/NetBot.csproj",
       "packagesPath": "/home/ola/.nuget/packages/",
-      "outputPath": "/home/ola/JetBrains IDE Projects/RiderProjects/NetDiscordBot/obj/",
+      "outputPath": "/home/ola/JetBrainsProjects/RiderProjects/NetDiscordBot/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/ola/.nuget/NuGet/NuGet.Config"
