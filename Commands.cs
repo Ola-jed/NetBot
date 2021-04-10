@@ -59,7 +59,7 @@ namespace NetBot
             var destinationBase = Convert.ToInt32(arg[4]);
             try
             {
-                var result = await ReplyAsync(Convert.ToString(Convert.ToInt32(numberParam,initialBase),destinationBase));
+                var result = await ReplyAsync("> " + Convert.ToString(Convert.ToInt32(numberParam,initialBase),destinationBase));
                 await result.AddReactionAsync(new Emoji("\uD83D\uDD22"));
             }
             catch (Exception e)
