@@ -20,7 +20,7 @@ namespace NetBot
             _logger = logger;
         }
 
-        public IServiceProvider BuildServiceProvider() => new ServiceCollection()
+        public IServiceProvider ConfigureServices() => new ServiceCollection()
             .AddSingleton(_client)
             .AddSingleton(_commands)
             .AddSingleton(_logger)
