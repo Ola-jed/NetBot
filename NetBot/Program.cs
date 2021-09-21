@@ -23,7 +23,7 @@ namespace NetBot
             await _client.LoginAsync(TokenType.Bot, token);
             await _client.StartAsync();
             var logger = new Logger(_client,_commandService);
-            var init = new Initialize(_commandService, _client, logger);
+            var init = new Startup(_commandService, _client, logger);
             var commandHandler = new CommandHandler(init.BuildServiceProvider());
             await commandHandler.InitializeAsync();
             await Task.Delay(-1);

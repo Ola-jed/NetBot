@@ -7,13 +7,13 @@ using NetBot.Services.Logging;
 
 namespace NetBot
 {
-    public class Initialize
+    public class Startup
     {
         private readonly CommandService _commands;
         private readonly DiscordSocketClient _client;
         private readonly ILogger _logger;
 
-        public Initialize(CommandService commands, DiscordSocketClient client,ILogger logger)
+        public Startup(CommandService commands, DiscordSocketClient client,ILogger logger)
         {
             _commands = commands;
             _client = client;
