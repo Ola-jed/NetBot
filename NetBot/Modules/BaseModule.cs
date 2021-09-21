@@ -3,6 +3,8 @@ using Discord.Commands;
 
 namespace NetBot.Modules
 {
+    [Name("Base")]
+    [Summary("Some basic commands")]
     public class BaseModule: ModuleBase<SocketCommandContext>
     {
         [Command("ping")]
