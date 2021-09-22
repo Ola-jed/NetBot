@@ -33,7 +33,7 @@ namespace NetBot.Modules
                     ? $"{res.GetProperty("joke").GetString()}"
                     : $" {res.GetProperty("setup").GetString()} : {res.GetProperty("delivery").GetString()}";
             }
-            catch(HttpRequestException e)
+            catch(HttpRequestException)
             {
                 toReturn = "Something went wrong";
             }
