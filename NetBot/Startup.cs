@@ -1,4 +1,6 @@
 using System;
+using System.Threading.Tasks;
+using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,19 +14,41 @@ namespace NetBot
         private readonly CommandService _commands;
         private readonly DiscordSocketClient _client;
         private readonly ILogger _logger;
+        private IServiceProvider _services;
 
-        public Startup(CommandService commands, DiscordSocketClient client,ILogger logger)
+        public Startup()
         {
-            _commands = commands;
-            _client = client;
-            _logger = logger;
+            _commands = new CommandService();
+            _client = new DiscordSocketClient(new DiscordSocketConfig()
+            {
+                LogLevel = LogSeverity.Verbose
+            });
+            _logger = new Logger(_client, _commands);
         }
 
-        public IServiceProvider ConfigureServices() => new ServiceCollection()
-            .AddSingleton(_client)
-            .AddSingleton(_commands)
-            .AddSingleton(_logger)
-            .AddSingleton<CommandHandler>()
-            .BuildServiceProvider();
+        public void ConfigureServices()
+        {
+            _services =  new ServiceCollection()
+                .AddSingleton(_client)
+                .AddSingleton(_commands)
+                .AddSingleton(_logger)
+                .AddSingleton<CommandHandler>()
+                .BuildServiceProvider();
+        }
+
+        public async Task InitClient()
+        {
+            await _client.SetGameAsync("Being refactored");
+            var token = Environment.GetEnvironmentVariable("DISCORD_TOKEN");
+            await _client.LoginAsync(TokenType.Bot, token);
+            await _client.StartAsync();
+        }
+
+        public async Task Run()
+        {
+            var commandHandler = new CommandHandler(_services);
+            await commandHandler.InitializeAsync();
+            await Task.Delay(-1);
+        }
     }
 }
