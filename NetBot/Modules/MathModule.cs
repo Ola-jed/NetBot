@@ -1,8 +1,7 @@
-using System.Data;
-using System.Linq;
 using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
+using NetBot.Services.Math;
 
 namespace NetBot.Modules
 {
@@ -10,27 +9,34 @@ namespace NetBot.Modules
     [Summary("Math module for some math things")]
     public class MathModule : ModuleBase<SocketCommandContext>
     {
+        private readonly IMathService _mathService;
+
+        public MathModule(IMathService mathService)
+        {
+            _mathService = mathService;
+        }
+
         [Command("sum")]
         [Summary("Sum numbers of a sequence")]
-        public async Task Sum(params int[] args)
+        public async Task Sum(params ulong[] args)
         {
             var builder = new EmbedBuilder()
             {
                 Color = Color.Teal
             };
-            builder.AddField("Result", args.Sum());
+            builder.AddField("Result", _mathService.Sum(args));
             await ReplyAsync("", false, builder.Build());
         }
 
         [Command("mul")]
         [Summary("Multiply the numbers of a sequence")]
-        public async Task Mul(params int[] args)
+        public async Task Mul(params ulong[] args)
         {
             var builder = new EmbedBuilder()
             {
                 Color = Color.DarkPurple
             };
-            builder.AddField("Result", args.Aggregate((x, y) => x * y));
+            builder.AddField("Result", _mathService.Multiply(args));
             await ReplyAsync("", false, builder.Build());
         }
 
@@ -42,8 +48,7 @@ namespace NetBot.Modules
             {
                 Color = Color.DarkMagenta
             };
-            var result = new DataTable().Compute(string.Concat(expression), null);
-            builder.AddField("Result", result);
+            builder.AddField("Result", _mathService.Eval(expression));
             await ReplyAsync("", false, builder.Build());
         }
     }
