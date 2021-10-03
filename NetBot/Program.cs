@@ -2,9 +2,12 @@
 
 namespace NetBot
 {
-    class Program
+    internal static class Program
     {
-        public static void Main() => MainAsync().GetAwaiter().GetResult();
+        public static void Main()
+        {
+            MainAsync().GetAwaiter().GetResult();
+        }
 
         private static async Task MainAsync()
         {
