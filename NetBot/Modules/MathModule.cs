@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
@@ -49,6 +50,19 @@ namespace NetBot.Modules
                 Color = Color.DarkMagenta
             };
             builder.AddField("Result", _mathService.Eval(expression));
+            await ReplyAsync("", false, builder.Build());
+        }
+
+        [Command("convert")]
+        [Summary("Convert a number from one base to another, syntax is $convert number-from-to")]
+        public async Task Convert(Tuple<string,int,int> conversionData)
+        {
+            var builder = new EmbedBuilder()
+            {
+                Color = Color.Red
+            };
+            var (baseNumber, fromBase, toBase) = conversionData;
+            builder.AddField("Conversion result",_mathService.Convert(baseNumber, fromBase, toBase));
             await ReplyAsync("", false, builder.Build());
         }
     }

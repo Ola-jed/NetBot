@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
+using NetBot.TypeReaders;
 
 namespace NetBot.Services
 {
@@ -22,27 +23,33 @@ namespace NetBot.Services
 
         public async Task InitializeAsync()
         {
+            _commands.AddTypeReader(typeof(Tuple<string, int, int>), new ConversionTypeReader());
             await _commands.AddModulesAsync(
-                assembly: Assembly.GetEntryAssembly(),
-                services: _services);
+                Assembly.GetEntryAssembly(),
+                _services);
             _client.MessageReceived += HandleCommandAsync;
         }
 
         private async Task HandleCommandAsync(SocketMessage msg)
         {
-            if (msg is not SocketUserMessage message) return;
-            var argPos = 0;
-            if (!(message.HasCharPrefix('$', ref argPos) ||
-                  message.HasMentionPrefix(_client.CurrentUser, ref argPos)) ||
-                message.Author.IsBot)
+            if (msg is not SocketUserMessage message)
             {
                 return;
             }
+
+            var argPos = 0;
+            if (!(message.HasCharPrefix('$', ref argPos)
+                  || message.HasMentionPrefix(_client.CurrentUser, ref argPos))
+                || message.Author.IsBot)
+            {
+                return;
+            }
+
             var context = new SocketCommandContext(_client, message);
             await _commands.ExecuteAsync(
-                context: context,
-                argPos: argPos,
-                services: _services);
+                context,
+                argPos,
+                _services);
         }
     }
 }

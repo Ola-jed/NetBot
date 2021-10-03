@@ -32,5 +32,10 @@ namespace NetBot.Services.Math
             var result = new DataTable().Compute(string.Concat(expression), null);
             return (double)result;
         }
+
+        public string Convert(string number, int fromBase, int toBase)
+        {
+            return System.Convert.ToString(System.Convert.ToInt32(number, fromBase), toBase);
+        }
     }
 }

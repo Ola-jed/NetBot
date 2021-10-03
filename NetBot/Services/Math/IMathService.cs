@@ -7,5 +7,6 @@ namespace NetBot.Services.Math
         public ulong Sum(IEnumerable<ulong> source);
         public ulong Multiply(IEnumerable<ulong> source);
         public double Eval(IEnumerable<string> expression);
+        public string Convert(string number, int fromBase, int toBase);
     }
 }
