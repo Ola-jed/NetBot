@@ -21,7 +21,7 @@ namespace NetBot.Modules
         [Summary("Sum numbers of a sequence")]
         public async Task Sum(params ulong[] args)
         {
-            var builder = new EmbedBuilder()
+            var builder = new EmbedBuilder
             {
                 Color = Color.Teal
             };
@@ -33,7 +33,7 @@ namespace NetBot.Modules
         [Summary("Multiply the numbers of a sequence")]
         public async Task Mul(params ulong[] args)
         {
-            var builder = new EmbedBuilder()
+            var builder = new EmbedBuilder
             {
                 Color = Color.DarkPurple
             };
@@ -45,7 +45,7 @@ namespace NetBot.Modules
         [Summary("Evaluate a mathematical expression")]
         public async Task Eval(params string[] expression)
         {
-            var builder = new EmbedBuilder()
+            var builder = new EmbedBuilder
             {
                 Color = Color.DarkMagenta
             };
@@ -57,7 +57,7 @@ namespace NetBot.Modules
         [Summary("Convert a number from one base to another, syntax is $convert number-from-to")]
         public async Task Convert(Tuple<string,int,int> conversionData)
         {
-            var builder = new EmbedBuilder()
+            var builder = new EmbedBuilder
             {
                 Color = Color.Red
             };

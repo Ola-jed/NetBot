@@ -21,7 +21,7 @@ namespace NetBot.Modules
         [Summary("Get the global help")]
         public async Task HelpAsync()
         {
-            var builder = new EmbedBuilder()
+            var builder = new EmbedBuilder
             {
                 Color = new Color(114, 137, 218),
                 Description = "Here is the list of available commands"
@@ -64,7 +64,7 @@ namespace NetBot.Modules
                 return;
             }
 
-            var builder = new EmbedBuilder()
+            var builder = new EmbedBuilder
             {
                 Color = new Color(114, 137, 218),
                 Description = $"Here are some commands like **{command}**"

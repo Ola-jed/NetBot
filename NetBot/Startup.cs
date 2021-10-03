@@ -21,7 +21,7 @@ namespace NetBot
         public Startup()
         {
             _commands = new CommandService();
-            _client = new DiscordSocketClient(new DiscordSocketConfig()
+            _client = new DiscordSocketClient(new DiscordSocketConfig
             {
                 LogLevel = LogSeverity.Verbose
             });
