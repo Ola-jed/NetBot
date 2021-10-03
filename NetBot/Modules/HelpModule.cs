@@ -26,7 +26,6 @@ namespace NetBot.Modules
                 Color = new Color(114, 137, 218),
                 Description = "Here is the list of available commands"
             };
-
             foreach (var module in _commandService.Modules)
             {
                 string description = null;
@@ -81,6 +80,7 @@ namespace NetBot.Modules
                     x.IsInline = false;
                 });
             }
+
             await ReplyAsync("", false, builder.Build());
         }
     }
