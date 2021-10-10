@@ -1,6 +1,11 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using ConsoleApp1;
 using Discord;
 using Discord.Commands;
 
@@ -40,6 +45,19 @@ namespace NetBot.Modules
 
             var joke = await ReplyAsync("> "+toReturn);
             await joke.AddReactionAsync(new Emoji("\uD83D\uDE06"));
+        }
+
+        [Command("Pigify")]
+        [Summary("Translate a sentence to pig latin")]
+        public async Task Pigify(params string[] args)
+        {
+            var builder = new EmbedBuilder
+            {
+                Color = Color.LightOrange
+            };
+            var pigifiedData = args.Select(arg => arg.Pigify()).ToArray();
+            builder.AddField("Pig says", string.Join(" ",pigifiedData));
+            await ReplyAsync("", false, builder.Build());
         }
     }
 }
