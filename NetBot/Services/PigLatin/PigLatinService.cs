@@ -1,6 +1,6 @@
 using System.Linq;
 
-namespace ConsoleApp1
+namespace NetBot.Services.PigLatin
 {
     public static class PigLatinService
     {

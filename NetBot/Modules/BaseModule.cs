@@ -5,9 +5,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using ConsoleApp1;
 using Discord;
 using Discord.Commands;
+using NetBot.Services.PigLatin;
 
 namespace NetBot.Modules
 {
