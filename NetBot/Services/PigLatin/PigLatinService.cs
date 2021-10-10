@@ -31,7 +31,7 @@ namespace NetBot.Services.PigLatin
         public static string GetStartConsonants(this string self)
         {
             var startConsonants =  self.ToCharArray()
-                .TakeWhile(c => !Vowels.Contains(c) && c != Y && c != y || c is Y or Y && self[0] == c)
+                .TakeWhile(c => !Vowels.Contains(c) && c != Y && c != y || c is Y or y && self[0] == c)
                 .ToArray();
             return new string(startConsonants);
         }
