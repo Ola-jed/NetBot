@@ -30,7 +30,7 @@ public class ConversionTypeReader : TypeReader
         }
         catch (Exception e)
         {
-            services.GetService<ILogger>()?.LogError($"{GetType().Name} failed to parse input: {input}")
+            services.GetService<ILogger>()?.LogError($"{GetType().Name} failed to parse input {input} : {e.Message}")
                 .ContinueWith(_ => { });
             return Task.FromResult(TypeReaderResult.FromError(CommandError.ParseFailed, "Input could not be parsed"));
         }

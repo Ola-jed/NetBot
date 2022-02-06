@@ -17,7 +17,7 @@ public static class LogLevelExtensions
         {
             LogLevel.Information => "Info",
             LogLevel.Debug       => "Debug",
-            LogLevel.Warning     => "Warn",
+            LogLevel.Warning     => "Warning",
             LogLevel.Error       => "Error",
             LogLevel.Critical    => "Critical",
             _                    => "Unknown"
