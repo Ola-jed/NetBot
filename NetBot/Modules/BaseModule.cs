@@ -4,6 +4,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
+using NetBot.Models;
 using NetBot.Services.Logging;
 using NetBot.Services.PigLatin;
 
@@ -38,11 +39,11 @@ public class BaseModule: ModuleBase<SocketCommandContext>
         {
             var response = await _client.GetAsync("https://v2.jokeapi.dev/joke/programming");
             response.EnsureSuccessStatusCode();
-            var responseBody = await response.Content.ReadAsStringAsync();
-            var res = JsonDocument.Parse(responseBody).RootElement;
-            toReturn = res.GetProperty("type").GetString() == "single"
-                ? $"{res.GetProperty("joke").GetString()}"
-                : $" {res.GetProperty("setup").GetString()} : {res.GetProperty("delivery").GetString()}";
+            var responseStream = await response.Content.ReadAsStreamAsync();
+            var jokeResponse = await JsonSerializer.DeserializeAsync<JokeApiResponse>(responseStream);
+            toReturn = (jokeResponse?.Type == "single"
+                ? jokeResponse.Joke
+                : $"{jokeResponse?.Setup} :\n{jokeResponse?.Delivery}") ?? string.Empty;
         }
         catch(HttpRequestException e)
         {
