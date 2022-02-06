@@ -1,20 +1,26 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using NetBot.Services.Logging;
 
-namespace NetBot
+namespace NetBot;
+
+public static class Program
 {
-    internal static class Program
-    {
-        public static void Main()
-        {
-            MainAsync().GetAwaiter().GetResult();
-        }
+    private static Startup? _startup;
 
-        private static async Task MainAsync()
-        {
-            var startup = new Startup();
-            startup.ConfigureServices();
-            await startup.InitClient();
-            await startup.Run();
-        }
+    public static async Task Main()
+    {
+        AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionTrapper;
+        _startup = new Startup();
+        _startup.ConfigureServices();
+        await _startup.InitClient();
+        await _startup.Run();
+    }
+
+    private static void UnhandledExceptionTrapper(object sender, UnhandledExceptionEventArgs e)
+    {
+        _startup?.GetService<ILogger>()?.LogCritical($"Unhandled exception: {e.ExceptionObject}")
+            .ConfigureAwait(false)
+            .GetAwaiter().GetResult();
     }
 }
