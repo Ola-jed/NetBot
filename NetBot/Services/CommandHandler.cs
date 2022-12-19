@@ -24,9 +24,7 @@ public class CommandHandler
     public async Task InitializeAsync()
     {
         _commands.AddTypeReader(typeof(Tuple<string, int, int>), new ConversionTypeReader());
-        await _commands.AddModulesAsync(
-            Assembly.GetEntryAssembly(),
-            _services);
+        await _commands.AddModulesAsync(Assembly.GetEntryAssembly(), _services);
         _client.MessageReceived += HandleCommandAsync;
     }
 

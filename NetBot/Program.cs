@@ -19,7 +19,8 @@ public static class Program
 
     private static void UnhandledExceptionTrapper(object sender, UnhandledExceptionEventArgs e)
     {
-        _startup?.GetService<ILogger>()?.LogCritical($"Unhandled exception: {e.ExceptionObject}")
+        _startup?.GetService<ILogger>()
+            ?.LogCritical($"Unhandled exception: {e.ExceptionObject}")
             .ConfigureAwait(false)
             .GetAwaiter().GetResult();
     }
